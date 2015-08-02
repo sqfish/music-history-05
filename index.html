@@ -1,0 +1,174 @@
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nashville Software School</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+
+<body>
+
+
+  <!-- 
+    HEADER AND NAVIGATION
+    Navigation bar and navigation links -->
+
+  <header>
+
+    <nav>
+      <ul>
+        <li class="current-selection">View Music</li>
+        <li class="middle"><a href="#">Add Music</a></li>
+        <li><a href="#">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- 
+
+    MAIN CONTENT
+    Parent flex container and left and right flex item children -->
+
+
+  <div class="flex-container">
+
+
+    <!-- 
+
+    LEFT SIDEBAR
+    Left flex item parent with filter input form elements -->
+
+    <div id="left-flex-item">
+
+
+      <form>
+
+
+        <!-- 
+          INPUT FORM ELEMENTS
+          slider and two select elements -->
+
+
+        <div id="slider-and-selects">
+          <label for="song-length">Song length:</label>
+          <input type="range" id="song-length">
+
+
+          <label for="artist-name">Artist:</label>
+          <select id="artist" name="artist-name">
+            <option selected disabled>Options</option>
+            <option>Artist</option>
+            <option>Artist</option>
+          </select>
+
+
+          <label for="album-name">Album:</label>
+          <select id="album" name="album-name">
+            <option selected disabled>Options</option>
+            <option>Album</option>
+            <option>Album</option>
+          </select>
+        </div>
+
+
+        <!-- 
+          INPUT FORM ELEMENTS
+          checkboxes grouped for positioning -->
+
+        <fieldset>
+          <legend>Genre:</legend>
+          <div id="flexbox">
+
+            <div id="left-checkboxes">
+              <ul>
+                <li>
+                  <input type="checkbox" name="genre" value="rock" id="rock">
+                  <label for="rock">Rock</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="genre" value="pop" id="pop">
+                  <label for="pop">Pop</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="genre" value="blues" id="blues">
+                  <label for="blues">Blues</label>
+                </li>
+              </ul>
+            </div>
+
+
+            <div id="right-checkboxes">
+              <ul>
+                <li>
+                  <input type="checkbox" name="genre" value="classical" id="classical">
+                  <label for="classical"> Classical</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="genre" value="jazz" id="jazz">
+                  <label for="jazz"> Jazz</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="genre" value="hiphop" id="hiphop">
+                  <label for="hiphop">Hip Hop</label>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </fieldset>
+
+
+        <!-- 
+          FORM SUBMIT -->
+
+        <input type="submit" value="Filter">
+      </form>
+    </div>
+
+
+    <!-- 
+
+       CONTENT
+       Right flex item and placeholder for song playlist -->
+
+
+    <div id="right-flex-item">
+
+      <div>
+        <h3>Song Name</h3>
+        <p>Artist Name | Album Name | Genre</p>
+      </div>
+
+      <div>
+        <h3>Song Name</h3>
+        <p>Artist Name | Album Name | Genre</p>
+      </div>
+
+      <div>
+        <h3>Song Name</h3>
+        <p>Artist Name | Album Name | Genre</p>
+      </div>
+
+      <div>
+        <h3>Song Name</h3>
+        <p>Artist Name | Album Name | Genre</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script data-main="javascripts/main" 
+          src="bower_components/requirejs/require.js"></script>
+  <!-- // <script type="text/javascript" src="javascripts/main.js"></script> -->
+
+</body>
+
+</html>
