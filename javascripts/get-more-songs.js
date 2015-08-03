@@ -17,5 +17,6 @@ define(function getMoreSongs(callback) {
   xhr.send();
   return {
     getMoreSongs
-  }
+  };
 });
+

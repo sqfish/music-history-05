@@ -1,24 +1,45 @@
 requirejs(["dom-access", "populate-songs", "get-more-songs"], 
-  function (domAccess, populateSongs, getMoreSongs){
-  var outputHTML = domAccess.getOutputElement();
-  // console.log("outputEl!!", outputHTML);
-  // console.log("songs1", songs1);
-  // console.log("songs2", songs2);
-// });
+  function (dom, populateSongs, getMoreSongs){
+  var outputHTML = dom.getOutputElement();
 
 
-populateSongs.getSongs(displaySongData);
+populateSongs.getSongs(displaySongData); //Display song data
 
 
 function displaySongData (songArray) {
   outputHTML.html("");
   for (var i = 0; i < songArray.length; i++) {
     var song = songArray[i];
-    var newSong = createNewSongElement(song);
+    var newSong = createNewSongElement(song); ///////// Call createNewSongElement
     outputHTML.append(newSong);
   }
-  displayMoreButton(outputHTML);
+  displayMoreButton(outputHTML);    // Call displayMoreButton
 }
+
+function displayMoreButton(playlistHTML) {
+  var moreButton = document.createElement("BUTTON");
+  moreButton.id = "moreButton";
+  $(moreButton).attr("type", "button");
+  $(moreButton).text("More");
+  outputHTML.append(moreButton);
+}
+
+
+function displayMoreSongs (songArray) {
+  for (var i = 0; i < songArray.length; i++) {
+      var song = songArray[i];
+      var newSong = createNewSongElement(song);   //////Call createNewSongElement
+      $("#moreButton").before(newSong);
+  }
+}
+
+$(document).on("click", "#moreButton", function(){
+  getMoreSongs.getMoreSongs(displayMoreSongs);  ///// Call displayMoreSongs
+});
+
+$(document).on("click", "#deleteButton", function(){
+  $(this).parent().remove();
+});
 
 
 function createNewSongElement (song) {
@@ -32,38 +53,10 @@ function createNewSongElement (song) {
   newDeleteButton.id = "deleteButton";
   newSong.appendChild(newHeader);
   newSong.appendChild(newSongParagraph);
-  newSong = updateSongElement(song, newSong);
+  newSong = updateSongElement(song, newSong); /////// Call updateSongElement
   newSong.appendChild(newDeleteButton);
   return newSong;
 }
-
-function displayMoreButton(playlistHTML) {
-  var moreButton = document.createElement("BUTTON");
-  moreButton.id = "moreButton";
-  $(moreButton).attr("type", "button");
-  $(moreButton).text("More");
-  outputHTML.append(moreButton);
-};
-
-
-function displayMoreSongs (songArray) {
-  for (var i = 0; i < songArray.length; i++) {
-      var song = songArray[i];
-      var newSong = createNewSongElement(song);
-      $("#moreButton").before(newSong);
-  }
-}
-
-$(document).on("click", "#moreButton", function(){
-  getMoreSongs.getMoreSongs(displayMoreSongs);
-})
-
-$(document).on("click", "#deleteButton", function(){
-  $("#deleteButton").parent().remove();
-});
-
-
-
 
 //
 // Update a single song element with information from a song object
@@ -82,6 +75,9 @@ function updateSongElement(song, songHTML) {
 }
 
 });
+
+
+
 
 //
 // Update the playlist DOM element with a song
