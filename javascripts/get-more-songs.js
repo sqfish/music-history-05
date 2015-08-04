@@ -13,10 +13,9 @@ define(function getMoreSongs(callback) {
       callback.call(this, data.songs);
     }
   };
-  xhr.open("GET", 'songs2.json');
+  xhr.open("GET", 'javascripts/songs2.json');
   xhr.send();
   return {
     getMoreSongs
   };
 });
-

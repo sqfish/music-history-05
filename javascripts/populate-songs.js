@@ -1,6 +1,6 @@
 define(function() {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", 'songs.json');
+  xhr.open("GET", 'javascripts/songs.json');
   xhr.send();
     
   function getSongs(callback) {
